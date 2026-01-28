@@ -10,7 +10,7 @@ Food Gaadi is a professional Flutter application designed for food truck vendors
 
 | Splash Screen | Dashboard | Menu Management | Orders Page |
 |:---:|:---:|:---:|:---:|
-| <img src="assets/screenshots/splash.png" width="200"/> | <img src="assets/screenshots/dashboard.png" width="200"/> | <img src="assets/screenshots/menu.png" width="200"/> | <img src="assets/screenshots/orders.png" width="200"/> |
+| <img src="splashscreen_page.jpeg" width="200"/> | <img src="dashboard_page.jpeg" width="200"/> | <img src="menu_page.jpeg" width="200"/> | <img src="order_page.jpeg" width="200"/> |
 
 *(Note: Create a folder named `assets/screenshots` and add your images there for them to appear)*
 
