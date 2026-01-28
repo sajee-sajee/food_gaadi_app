@@ -1,0 +1,9 @@
+# Query: package:flutter_application_1/
+# ContextLines: 1
+
+1 result - 1 file
+
+test/widget_test.dart:
+  10  
+  11: import 'package:food_gaadi//main.dart';
+  12  

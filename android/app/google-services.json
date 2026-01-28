@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "822756277877",
+    "project_id": "food-gaadi",
+    "storage_bucket": "food-gaadi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822756277877:android:49651fdd8acb2f22c3023c",
+        "android_client_info": {
+          "package_name": "com.foodgaadi.vendor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD59vi7zzBxGo5ZE3THD0WylKRbyRWgtIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

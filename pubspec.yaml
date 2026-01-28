@@ -1,0 +1,49 @@
+name: food_gaadi
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  supabase_flutter: ^2.0.0
+  cupertino_icons: ^1.0.2
+  image_picker: ^1.0.7     # For picking images
+ 
+  
+  google_fonts: ^6.1.0
+  flutter_native_splash: ^2.3.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  # We added this so your app can use the image too
+  assets:
+    - lib/assets/favicon.png
+
+# ---------------------------------------------------------
+# CONFIGURATION SECTION (Must be at the bottom, no spaces!)
+# ---------------------------------------------------------
+
+# 1. App Icon Config
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "lib/assets/favicon.png"
+  min_sdk_android: 21
+
+# 2. Splash Screen Config
+flutter_native_splash:
+  color: "#D0BB95"
+  image: "lib/assets/favicon.png"
+  android_12:
+    image: "lib/assets/favicon.png"
+    color: "#D0BB95"
