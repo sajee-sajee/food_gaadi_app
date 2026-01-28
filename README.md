@@ -107,6 +107,20 @@ create table public.profiles (
 );
 
 
+create table public.menu_items (
+  id uuid default gen_random_uuid() primary key,
+  name text not null,
+  description text,
+  price numeric not null,
+  image_url text,
+  category text,
+  is_available boolean default true,
+  is_popular boolean default false
+);
+
+```
+
+📂 Project Structure
 lib/
 ├── assets/              # Images and Icons
 ├── screens/
