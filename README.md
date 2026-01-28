@@ -120,7 +120,9 @@ create table public.menu_items (
 
 ```
 
-📂 Project Structure
+## 📂 Project Structure
+```Structure
+
 lib/
 ├── assets/              # Images and Icons
 ├── screens/
@@ -131,3 +133,4 @@ lib/
 │   ├── profile_page.dart     # User Profile & Logout
 │   └── add_food_item_page.dart # Add/Edit Item Form
 └── main.dart            # Entry point
+```
