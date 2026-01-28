@@ -11,7 +11,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Supabase.initialize(
-    // ⚠️ Replace with YOUR actual URL and Key
+
     url: 'https://cpccxdysbtsfqpvfsfph.supabase.co',
     anonKey: 'sb_publishable_hH0ZFPqleNAUXz9osQniLg_5Q7zOfPb', 
   );
@@ -79,12 +79,12 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             const Spacer(),
             
-            // 1. UPDATED PATH (Must match the folder in Step 1)
+
             Image.asset(
               'lib/assets/favicon.png', 
               width: 250, 
               height: 250,
-              // Error builder helps you see if the image is missing without crashing
+
               errorBuilder: (context, error, stackTrace) {
                 return const Column(
                   children: [
@@ -97,7 +97,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
             const SizedBox(height: 20),
             
-            // 2. APP NAME
+
             Hero(
               tag: 'title',
               child: Material(
@@ -125,7 +125,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
             const SizedBox(height: 10),
 
-            // 3. TAGLINE
+
             RichText(
               text: const TextSpan(
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, letterSpacing: 1.2),
