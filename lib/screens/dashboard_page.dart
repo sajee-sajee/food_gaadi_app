@@ -159,7 +159,7 @@ class _DashboardViewState extends State<DashboardView> {
                   scale: 0.9,
                   child: Switch(
                     value: isOnline,
-                    activeColor: Colors.white,
+                    activeThumbColor: Colors.white,
                     activeTrackColor: const Color(0xFFE88B0D),
                     onChanged: (val) => setState(() => isOnline = val),
                   ),

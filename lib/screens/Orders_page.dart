@@ -8,7 +8,7 @@ class OrdersPage extends StatefulWidget {
 }
 
 class _OrdersPageState extends State<OrdersPage> {
-  // 0 = Active, 1 = History
+
   int _selectedTab = 0;
 
   @override
@@ -61,11 +61,11 @@ class _OrdersPageState extends State<OrdersPage> {
             const SizedBox(height: 20),
 
             // --- 3. DYNAMIC CONTENT ---
-            // This checks which tab is selected and changes the view
+
             Expanded(
               child: _selectedTab == 0 
-                  ? _buildActiveOrdersList() // Show Orders if Tab 0
-                  : _buildEmptyHistoryView(), // Show "No Orders" if Tab 1
+                  ? _buildActiveOrdersList() 
+                  : _buildEmptyHistoryView(), 
             ),
           ],
         ),

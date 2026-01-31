@@ -18,12 +18,12 @@ class SignupPage extends StatelessWidget {
             children: [
               const SizedBox(height: 20),
               
-              // 1. SMALL TOP LOGO
+
               const FoodGaadiLogo(size: 80),
               
               const SizedBox(height: 10),
 
-              // 2. LOGO TEXT
+
               RichText(
                 text: TextSpan(
                   style: const TextStyle(fontSize: 24, color: Colors.black),
@@ -45,7 +45,7 @@ class SignupPage extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // 3. HEADLINES
+
               const Text(
                 "Vendor Sign Up",
                 style: TextStyle(
@@ -63,7 +63,7 @@ class SignupPage extends StatelessWidget {
 
               const SizedBox(height: 30),
 
-              // 4. THE FORM FIELDS
+
               _buildLabel("Owner Name"),
               _buildTextField(hint: "Ex. Rajesh Kumar", icon: Icons.person),
 
@@ -111,11 +111,11 @@ class SignupPage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 40), // Spacing before the button
+              const SizedBox(height: 40), 
 
-              // --- 5. THE NEW "NEXT" BUTTON ---
+              //THE NEW "NEXT" BUTTON ---
               SizedBox(
-                width: double.infinity, // Makes it full width
+                width: double.infinity, 
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
@@ -171,7 +171,7 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  // Helper Widget for Labels
+
   Widget _buildLabel(String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0, top: 16.0),
@@ -188,7 +188,7 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  // Helper Widget for Text Fields
+
   Widget _buildTextField({required String hint, required IconData icon}) {
     return TextField(
       decoration: InputDecoration(
