@@ -28,7 +28,7 @@ class _OrdersPageState extends State<OrdersPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Manage", style: TextStyle(color: Colors.grey, fontSize: 14)),
-                      Text("Orders", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+                      Text("Orders · Demo", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
                     ],
                   ),
                   Container(

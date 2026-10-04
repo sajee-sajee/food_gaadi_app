@@ -58,7 +58,7 @@ class _AddFoodItemPageState extends State<AddFoodItemPage> {
       // 1. Upload NEW Image (if selected)
       if (_imageFile != null) {
         final fileName = '${DateTime.now().millisecondsSinceEpoch}.jpg';
-        final path = 'uploads/$fileName';
+        final path = '${supabase.auth.currentUser!.id}/$fileName';
         await supabase.storage.from('food-images').upload(path, _imageFile!, fileOptions: const FileOptions(contentType: 'image/jpeg'));
         imageUrl = supabase.storage.from('food-images').getPublicUrl(path);
       }

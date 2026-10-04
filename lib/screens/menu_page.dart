@@ -54,6 +54,7 @@ class _MenuPageState extends State<MenuPage> {
     return _supabase
         .from('menu_items')
         .stream(primaryKey: ['id'])
+        .eq('vendor_id', _supabase.auth.currentUser!.id)
         .order('name', ascending: true)
         .map((data) => data.map((json) => MenuItem.fromMap(json)).toList());
   }

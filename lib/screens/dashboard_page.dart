@@ -152,7 +152,7 @@ class _DashboardViewState extends State<DashboardView> {
                   children: [
                     const Text("You are Online", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 4),
-                    Text("Shop is currently accepting orders", style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+                    Text("Demo status — orders are not connected", style: TextStyle(fontSize: 12, color: Colors.grey[600])),
                   ],
                 ),
                 Transform.scale(
@@ -174,7 +174,7 @@ class _DashboardViewState extends State<DashboardView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text("Today's Overview", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text("Sample Overview", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(color: const Color(0xFFFFF3E0), borderRadius: BorderRadius.circular(20)),
@@ -259,7 +259,7 @@ class _DashboardViewState extends State<DashboardView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text("Recent Orders", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text("Sample Orders", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               TextButton(onPressed: () {}, child: const Text("View All", style: TextStyle(color: Color(0xFFE88B0D))))
             ],
           ),

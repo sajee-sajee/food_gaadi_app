@@ -1,136 +1,71 @@
-# 🚚 Food Gaadi - Vendor App
+# Food Gaadi — vendor app prototype
 
-**"Fuel Your Hunger"**
+A Flutter app exploring authentication, vendor profiles and menu management for food-truck businesses.
 
-Food Gaadi is a professional Flutter application designed for food truck vendors to manage their business operations seamlessly. From tracking real-time orders to managing the menu and monitoring daily revenue, this app serves as a complete digital dashboard for street food entrepreneurs.
+## Current status
 
----
+| Area | Implementation |
+| --- | --- |
+| Authentication | Supabase email/password sign-up and login; confirmation prompt when required |
+| Vendor profile | Reads the signed-in vendor's profile |
+| Menu | Supabase CRUD, availability and image uploads |
+| Orders and revenue | Sample data and interface demonstrations, not live order processing |
+| Shop status and charts | Presentation prototype; no complete commerce backend |
 
-## 📱 App Screenshots
+## Screenshots
 
-| Splash Screen | Dashboard | Menu Management | Orders Page | Profile Page |
-|:---:|:---:|:---:|:---:|:---:|
-| <img src="splashscreen_page.jpeg" width="200"/> | <img src="dashboard_page.jpeg" width="200"/> | <img src="menu_page.jpeg" width="200"/> | <img src="order_page.jpeg" width="200"/> | <img src="profile_page.jpeg" width="200"/> |
+| Dashboard | Menu | Orders demo |
+| --- | --- | --- |
+| ![Dashboard](dashboard_page.jpeg) | ![Menu](menu_page.jpeg) | ![Orders](order_page.jpeg) |
 
+## Run locally
 
+Use Flutter with Dart 3.10 or newer, an Android/iOS development target and a fresh Supabase project. Native image uploads use `dart:io`; web support is not validated.
 
----
-
-## ✨ Key Features
-
-### 🔐 Authentication & Onboarding
-* **Supabase Auth:** Secure Login and Sign Up.
-* **Vendor Profile:** Captures "Food Truck Name" and "Location" (e.g., LPU Block 34) during registration.
-* **Auto-Login:** Splash screen checks for existing sessions to skip login.
-
-### 📊 Vendor Dashboard
-* **Live Status:** Toggle shop status ("Online/Offline") to control order intake.
-* **Business Stats:** View "Total Revenue," "Total Orders," and "Pending Orders" at a glance.
-* **Hourly Sales Chart:** Custom-painted visualization of peak business hours.
-
-### 🍔 Menu Management
-* **Full CRUD:** Add, Edit, and Delete food items.
-* **Live Availability:** Instant toggle switches to mark items as "Active" or "Sold Out."
-* **Currency:** All prices displayed in **Indian Rupee (₹)**.
-* **Categories:** Organized by "Mains," "Drinks," etc.
-
-### 📝 Order Management
-* **Tabbed Interface:** Switch between **Active** orders and **History**.
-* **Order Actions:** "Accept," "Reject," or "Mark as Ready" with color-coded status badges.
-* **Empty States:** Custom UI when there are no active or past orders.
-
----
-
-## 🛠️ Tech Stack
-
-* **Frontend:** [Flutter](https://flutter.dev/) (Dart)
-* **Backend:** [Supabase](https://supabase.com/) (PostgreSQL, Auth, Realtime)
-* **Design:** Google Fonts (Pacifico), Custom Painters (Charts)
-* **Icons:** Flutter Launcher Icons
-
----
-
-## 🚀 Getting Started
-
-Follow these steps to run the project on your machine.
-
-### Prerequisites
-* Flutter SDK installed
-* VS Code or Android Studio
-* A Supabase Project
-
-### Installation
-
-1.  **Clone the repository**
-    ```bash
-    git clone [https://github.com/YOUR_USERNAME/food_gaadi_app.git](https://github.com/YOUR_USERNAME/food_gaadi_app.git)
-    cd food_gaadi_app
-    ```
-
-2.  **Install Dependencies**
-    ```bash
-    flutter pub get
-    ```
-
-3.  **Setup Assets**
-    Ensure your `assets` folder exists in the root directory:
-    * `assets/favicon.png` (Logo)
-    * `assets/app_icon.png` (App Icon)
-
-4.  **Configure Supabase**
-    Open `lib/main.dart` and enter your keys:
-    ```dart
-    await Supabase.initialize(
-      url: 'YOUR_SUPABASE_URL',
-      anonKey: 'YOUR_SUPABASE_ANON_KEY',
-    );
-    ```
-
-5.  **Run the App**
-    ```bash
-    flutter run
-    ```
-
----
-
-## 🗄️ Database Schema
-
-Run these SQL commands in your Supabase SQL Editor to set up the tables:
-
-### 1. Profiles Table
-```sql
-create table public.profiles (
-  id uuid references auth.users not null primary key,
-  full_name text, -- Stores Truck Name
-  location text,  -- Stores Truck Location
-  avatar_url text
-);
-
-
-create table public.menu_items (
-  id uuid default gen_random_uuid() primary key,
-  name text not null,
-  description text,
-  price numeric not null,
-  image_url text,
-  category text,
-  is_available boolean default true,
-  is_popular boolean default false
-);
-
+```bash
+git clone https://github.com/sajee-sajee/food_gaadi_app.git
+cd food_gaadi_app
+flutter pub get
 ```
 
-## 📂 Project Structure
-```Structure
+1. Run `supabase/schema.sql` in the SQL editor of a **fresh** Supabase project. It creates profiles, vendor-owned menu items, profile creation on sign-up, row-level security policies, realtime publication and the image bucket.
+2. Copy the project URL and public anon key. Never use a service-role key in the app.
+3. Run:
 
-lib/
-├── assets/              # Images and Icons
-├── screens/
-│   ├── login_page.dart       # Auth & Registration
-│   ├── dashboard_page.dart   # Main Hub & Stats
-│   ├── menu_page.dart        # Menu List & Toggle Logic
-│   ├── Orders_page.dart      # Active/History Tabs
-│   ├── profile_page.dart     # User Profile & Logout
-│   └── add_food_item_page.dart # Add/Edit Item Form
-└── main.dart            # Entry point
+```bash
+flutter run \
+  --dart-define=SUPABASE_URL=https://YOUR_PROJECT.supabase.co \
+  --dart-define=SUPABASE_ANON_KEY=YOUR_PUBLIC_ANON_KEY
 ```
+
+Configuration is supplied at build time; there is no need to edit `lib/main.dart`. Supabase public client keys are not secrets; row-level security controls data access. Image files are public, while uploads and menu changes are restricted to the signed-in vendor.
+
+The schema file is a fresh-project bootstrap, not an upgrade migration. Existing data needs a reviewed migration that assigns each menu item to its correct vendor; do not guess ownership or replace an existing database.
+
+## Demo walkthrough
+
+1. Register with truck name, location, email and password.
+2. Confirm the email if requested, then sign in.
+3. Add a menu item with a JPEG image; edit its price and toggle availability.
+4. Sign in with a second vendor account and verify the first vendor's menu is not accessible.
+5. Open the Orders demo and switch between active samples and history.
+
+## Tests
+
+```bash
+flutter test
+```
+
+Tests cover missing configuration and the Orders demo's history navigation. They do not verify live Supabase access. Before sharing a release, run the walkthrough against a test project and verify row-level security with two distinct accounts.
+
+## Structure
+
+- `lib/main.dart`: initialization and session routing
+- `lib/app_config.dart`: build-time configuration validation
+- `lib/screens/`: login, dashboard, menu, orders and profile interfaces
+- `supabase/schema.sql`: fresh-project database/storage setup
+- `test/`: configuration and widget checks
+
+## Next milestones
+
+Connect real orders and revenue, complete vendor status persistence, add database integration tests, and validate native releases. This repository does not yet demonstrate a production food-delivery service, Docker deployment or a completed security audit.
