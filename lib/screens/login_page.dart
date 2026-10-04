@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
       if (_isLogin) {
         await supabase.auth.signInWithPassword(email: email, password: password);
       } else {
-        await supabase.auth.signUp(
+        final response = await supabase.auth.signUp(
           email: email,
           password: password,
           data: {
@@ -49,6 +49,13 @@ class _LoginPageState extends State<LoginPage> {
             'location': location,
           }, 
         );
+        if (response.session == null) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Check your email to confirm your account, then sign in.')));
+            setState(() => _isLogin = true);
+          }
+          return;
+        }
       }
 
       if (mounted) {

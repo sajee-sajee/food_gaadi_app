@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:async';
+import 'app_config.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 
@@ -10,12 +10,9 @@ import 'screens/dashboard_page.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Supabase.initialize(
-
-
-    url: 'YOUR_SUPABASE_URL',
-    anonKey: 'aNON KEY', 
-  );
+  const config = AppConfig.fromEnvironment();
+  config.validate();
+  await Supabase.initialize(url: config.url, anonKey: config.anonKey);
 
   runApp(const MyApp());
 }
